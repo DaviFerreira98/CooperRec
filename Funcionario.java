@@ -4,8 +4,8 @@ public class Funcionario extends Pessoa {
 	
 	private String codigoT;
 	
-	public Funcionario(String nome, String cpf, int idade) {
-		super(nome,cpf,idade);
+	public Funcionario(String nome, String cpf, int idade,String email, int telefone, double salario, String codigoT) {
+		super(nome,cpf,idade, email, telefone, salario);
 		this.codigoT = codigoT;
 	}
 
