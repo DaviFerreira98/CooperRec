@@ -7,6 +7,7 @@ public class Funcionario extends Pessoa {
 	public Funcionario(String nome, String cpf, int idade,String email, int telefone, double salario, int codigoT) {
 		super(nome,cpf,idade, email, telefone, salario);
 		this.codigoT = codigoT;
+	
 	}
 
 	public int getCodigoT() {
@@ -16,6 +17,8 @@ public class Funcionario extends Pessoa {
 	public void setCodigoT(int codigoT) {
 		this.codigoT = codigoT;
 	}
-	
-	
+
+	public void ImprimirInfo() {
+		System.out.println(getNome()+getCpf()+getIdade()+getEmail()+getSalario()+getCodigoT());
+	}
 }
