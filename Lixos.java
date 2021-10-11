@@ -10,7 +10,7 @@ public class Lixos extends Funcionario{
 	private float metal;
 	
 	//Criando a classe do funcionário com todos os lixos que ele produziu.
-	public Lixos(String nome, String cpf, int idade, String email, int telefone, double salario, String codigoT,
+	public Lixos(String nome, String cpf, int idade, String email, int telefone, double salario, int codigoT,
 			float papel, float vidro, float plastico, float metal) {
 		super(nome, cpf, idade, email, telefone, salario, codigoT);
 		this.papel = papel;
