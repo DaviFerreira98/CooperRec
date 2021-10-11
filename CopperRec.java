@@ -15,8 +15,8 @@ public class CopperRec {
 		Scanner read = new Scanner(System.in);
 
 		ArrayList<Lixos>funcionarioArray = new ArrayList();
-		Lixos funcionario = new Lixos("Davi","",0,"",0,0,32,0,0,0,0);
-		Lixos funcionario1 = new Lixos("Carlos","",0,"",0,0,15,0,0,0,0);
+		Lixos funcionario = new Lixos("Davi","",0,"",0,0,32,5,0,0,0);
+		Lixos funcionario1 = new Lixos("Carlos","",0,"",0,0,15,5,0,0,0);
 		
 		funcionarioArray.add(funcionario);
 		funcionarioArray.add(funcionario1);
@@ -29,7 +29,7 @@ public class CopperRec {
 			op = read.nextInt();
 		}
 		switch(op){
-		case 1: //Funcionario
+		case 1: //Menu do Funcionário
 			System.out.println("Digite seu código de entrada: ");
 			codtrab = read.nextInt();
 			for(Lixos f :funcionarioArray) { // Verificar o Codigo
@@ -57,7 +57,7 @@ public class CopperRec {
 						+ "\n3- plastico"
 						+ "\n4- vidro");
 				op3=read.nextInt();
-				while(op3<1 || op3>3) {
+				while(op3<1 || op3>4) {
 					System.out.println("Erro");
 					System.out.println("Qual voce deseja adicionar: "
 							+ "\n1- Papel"
