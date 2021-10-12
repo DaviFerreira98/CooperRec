@@ -10,6 +10,7 @@ public class CopperRec {
 		
 		int codtrab;
 		int op,op2,op3;
+		boolean certo = false;
 		int contErro = 0;
 		double papel=0,metal=0,vidro=0,plastico=0;
 		Scanner read = new Scanner(System.in);
@@ -32,6 +33,7 @@ public class CopperRec {
 		}
 		switch(op){
 		case 1: //Menu do Funcionário
+			
 			System.out.println("Digite seu código de entrada: ");
 			codtrab = read.nextInt();
 			//INICIO
@@ -39,6 +41,7 @@ public class CopperRec {
 				contErro=0;
 				
 				if(codtrab == f.getCodigoT()) {
+					certo = true;
 				f.ImprimirInfo();
 				
 				System.out.println("\t\tVoce Deseja:"
@@ -124,29 +127,113 @@ public class CopperRec {
 		}
 		
 				else {
-					contErro++;
+					
+					//contErro++;
 				}
 			
 		}			
 					//FIM
 
-			while(contErro>2) { //Caso do codigo errado
+			while(certo!=true) { //Caso do codigo errado
 				System.out.println("Errado");
 				System.out.println("Digite seu código de entrada: ");
 				codtrab = read.nextInt();//COLE A PARTIR DAQUI
-				for(Funcionario f :funcionarioArray) {
+				for(Lixos f :funcionarioArray) { // Verificar o Codigo
 					contErro=0;
+					
 					if(codtrab == f.getCodigoT()) {
+						certo = true;
 					f.ImprimirInfo();
 					
+					System.out.println("\t\tVoce Deseja:"
+							+ "\n1\t Adicionar o lixo a ser reciclado"
+							+ "\n2\t ver a comissão");
+					op2=read.nextInt();
+					
+					while(op2<1 || op2>2) {
+						System.out.println("Errado");
+						System.out.println("\t\tVoce Deseja:"
+								+ "\n1\t Adicionar o lixo a ser reciclado"
+								+ "\n2\t ver a comissão");
+						op2=read.nextInt();
+					}
+					do 
+				switch(op2) {
+			
 				
+				case 1:
+					System.out.println("Qual voce deseja adicionar: "
+							+ "\n1- Papel"
+							+ "\n2- metal"
+							+ "\n3- plastico"
+							+ "\n4- vidro"
+							+ "\n0 - sair");
+					op3=read.nextInt();
+					while(op3<0 || op3>4) {
+						System.out.println("Erro");
+						System.out.println("Qual voce deseja adicionar: "
+								+ "\n1- Papel"
+								+ "\n2- metal"
+								+ "\n3- plastico"
+								+ "\n4- vidro"
+								+ "\n0 - sair");
+						op3=read.nextInt();
+					}
+					if(op3==1) { //Papel
+						System.out.println("Digite a quantidade em quilos");
+						papel=read.nextDouble();
+						f.setPapel(papel+f.getPapel());
+						f.imprimirLixos();
+						
+					}
+					if(op3==2) { //Metal
+						System.out.println("Digite a quantidade em quilos");
+						metal=read.nextDouble();
+						f.setMetal(metal+f.getMetal());
+						f.imprimirLixos();
+						
+					}
+					if(op3==3) { //Plástico
+						System.out.println("Digite a quantidade em quilos");
+						plastico=read.nextDouble();
+						f.setPlastico(plastico+f.getPlastico());
+						f.imprimirLixos();
+						
+					}
+					if(op3==4) { //Vidro
+						System.out.println("Digite a quantidade em quilos");
+						vidro=read.nextDouble();
+						f.setVidro(vidro+f.getVidro());
+						f.imprimirLixos();
+						
+					}
+					if(op3==0) {
+				    op2 = 0;
+					break;
+					}
+					break;
+					
+				case 2:
+					f.imprimirComissao();
+					System.out.println("Digite 1 para adicionar lixos ou digite 0 para sair");
+					op2 = read.nextInt();
+					while (op2 > 1 || op2 < 0 ) {
+						System.out.println("Digite 1 para adicionar lixos ou digite 0 para sair");
+						op2 = read.nextInt();				}
+					break;
+					
 				}
+					while (op2 != 0);
+		
+			}
+			
 					else {
-						contErro++;
+						
+						//contErro++;
 					}
 				
 			}
-				
+			//COLE ATÉ AQUI	
 			}
 			
 			break;
@@ -163,5 +250,5 @@ public class CopperRec {
 	}
 
 
-	}
+}
 
