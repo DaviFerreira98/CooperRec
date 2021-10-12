@@ -17,9 +17,11 @@ public class CopperRec {
 		ArrayList<Lixos>funcionarioArray = new ArrayList();
 		Lixos funcionario = new Lixos("Davi","",0,"",0,0,32,5,0,0,0);
 		Lixos funcionario1 = new Lixos("Carlos","",0,"",0,0,15,5,0,0,0);
+		Lixos funcionario2 = new Lixos("Ana","",0,"",0,0,28,11,0,0,0);
 		
 		funcionarioArray.add(funcionario);
 		funcionarioArray.add(funcionario1);
+		funcionarioArray.add(funcionario2);
 		
 		
 		System.out.println("Você é (1)funcionário ou (2)operador, (0)Para sair.");
@@ -32,11 +34,13 @@ public class CopperRec {
 		case 1: //Menu do Funcionário
 			System.out.println("Digite seu código de entrada: ");
 			codtrab = read.nextInt();
+			//INICIO
 			for(Lixos f :funcionarioArray) { // Verificar o Codigo
 				contErro=0;
 				
 				if(codtrab == f.getCodigoT()) {
 				f.ImprimirInfo();
+				
 				System.out.println("\t\tVoce Deseja:"
 						+ "\n1\t Adicionar o lixo a ser reciclado"
 						+ "\n2\t ver a comissão");
@@ -50,6 +54,7 @@ public class CopperRec {
 					op2=read.nextInt();
 				}
 			switch(op2) {
+			
 			case 1:
 				System.out.println("Qual voce deseja adicionar: "
 						+ "\n1- Papel"
@@ -79,7 +84,12 @@ public class CopperRec {
 					
 				}
 				break;
+				
+			case 2:
+				
+				break;
 			}
+			
 		}
 			
 			
@@ -87,11 +97,13 @@ public class CopperRec {
 					contErro++;
 				}
 			
-		}
-			while(contErro>0) { //Caso do codigo errado
+		}			
+					//FIM
+
+			while(contErro>2) { //Caso do codigo errado
 				System.out.println("Errado");
 				System.out.println("Digite seu código de entrada: ");
-				codtrab = read.nextInt();
+				codtrab = read.nextInt();//COLE A PARTIR DAQUI
 				for(Funcionario f :funcionarioArray) {
 					contErro=0;
 					if(codtrab == f.getCodigoT()) {
@@ -117,7 +129,7 @@ public class CopperRec {
 			System.out.println("Obrigado pela preferência.");
 			break;
 		}
-		
+
 	}
 
 
