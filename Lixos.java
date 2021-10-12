@@ -23,6 +23,12 @@ public class Lixos extends Funcionario{
 	public void ImprimirInfo() {
 		System.out.println(getNome()+getCpf()+getIdade()+getEmail()+getTelefone()+getSalario()+getCodigoT()+papel+vidro+plastico+metal);
 	}
+	
+	public void imprimirComissao() {
+		double calculo;
+		calculo = (papel / 100) + (plastico / 100) + (metal / 100) + (vidro / 100);
+		System.out.println("O valor da sua comissão atual é de: "+calculo);
+	}
 
 	public double getPapel() {
 		return papel;

@@ -16,7 +16,7 @@ public class CopperRec {
 
 		ArrayList<Lixos>funcionarioArray = new ArrayList();
 		Lixos funcionario = new Lixos("Davi","",0,"",0,0,32,5,0,0,0);
-		Lixos funcionario1 = new Lixos("Carlos","",0,"",0,0,15,5,0,0,0);
+		Lixos funcionario1 = new Lixos("Carlos","",0,"",0,0,15,500,0,0,0);
 		Lixos funcionario2 = new Lixos("Ana","",0,"",0,0,28,11,0,0,0);
 		
 		funcionarioArray.add(funcionario);
@@ -53,22 +53,26 @@ public class CopperRec {
 							+ "\n2\t ver a comissão");
 					op2=read.nextInt();
 				}
+				do 
 			switch(op2) {
+		
 			
 			case 1:
 				System.out.println("Qual voce deseja adicionar: "
 						+ "\n1- Papel"
 						+ "\n2- metal"
 						+ "\n3- plastico"
-						+ "\n4- vidro");
+						+ "\n4- vidro"
+						+ "\n0 - sair");
 				op3=read.nextInt();
-				while(op3<1 || op3>4) {
+				while(op3<0 || op3>4) {
 					System.out.println("Erro");
 					System.out.println("Qual voce deseja adicionar: "
 							+ "\n1- Papel"
 							+ "\n2- metal"
 							+ "\n3- plastico"
-							+ "\n4- vidro");
+							+ "\n4- vidro"
+							+ "\n0 - sair");
 					op3=read.nextInt();
 				}
 				if(op3==1) { //Papel
@@ -78,21 +82,47 @@ public class CopperRec {
 					f.imprimirLixos();
 					
 				}
-				if(op3==2) {
+				if(op3==2) { //Metal
 					System.out.println("Digite a quantidade em quilos");
 					metal=read.nextDouble();
+					f.setMetal(metal+f.getMetal());
+					f.imprimirLixos();
 					
+				}
+				if(op3==3) { //Plástico
+					System.out.println("Digite a quantidade em quilos");
+					plastico=read.nextDouble();
+					f.setPlastico(plastico+f.getPlastico());
+					f.imprimirLixos();
+					
+				}
+				if(op3==4) { //Vidro
+					System.out.println("Digite a quantidade em quilos");
+					vidro=read.nextDouble();
+					f.setVidro(vidro+f.getVidro());
+					f.imprimirLixos();
+					
+				}
+				if(op3==0) {
+			    op2 = 0;
+				break;
 				}
 				break;
 				
 			case 2:
-				
+				f.imprimirComissao();
+				System.out.println("Digite 1 para adicionar lixos ou digite 0 para sair");
+				op2 = read.nextInt();
+				while (op2 > 1 || op2 < 0 ) {
+					System.out.println("Digite 1 para adicionar lixos ou digite 0 para sair");
+					op2 = read.nextInt();				}
 				break;
+				
 			}
-			
+				while (op2 != 0);
+	
 		}
-			
-			
+		
 				else {
 					contErro++;
 				}
