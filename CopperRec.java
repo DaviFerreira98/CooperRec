@@ -1,6 +1,9 @@
 package Projeto;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Scanner;
 
 public class CopperRec {
@@ -8,8 +11,8 @@ public class CopperRec {
 
 	public static void main(String[] args) {
 		
-		int codtrab;
-		int op,op2,op3;
+		int codtrab,codExcluir,codAdm = 12345, loginAdm;
+		int op,op2,op3,op4;
 		boolean certo = false;
 		int contErro = 0;
 		double papel=0,metal=0,vidro=0,plastico=0;
@@ -42,6 +45,9 @@ public class CopperRec {
 				
 				if(codtrab == f.getCodigoT()) {
 					certo = true;
+				DateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+				Calendar calendario = Calendar.getInstance();
+				System.out.println(df.format(calendario.getTime()));
 				f.ImprimirInfo();
 				
 				System.out.println("\t\tVoce Deseja:"
@@ -143,7 +149,10 @@ public class CopperRec {
 					
 					if(codtrab == f.getCodigoT()) {
 						certo = true;
-					f.ImprimirInfo();
+						DateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+						Calendar calendario = Calendar.getInstance();
+						System.out.println(df.format(calendario.getTime()));
+						f.ImprimirInfo();
 					
 					System.out.println("\t\tVoce Deseja:"
 							+ "\n1\t Adicionar o lixo a ser reciclado"
@@ -237,15 +246,56 @@ public class CopperRec {
 			}
 			
 			break;
-			
 		case 2:
+			System.out.println("\nDigite seu código de login: ");
+			loginAdm = read.nextInt();
+			if(loginAdm == codAdm)
+			{
+			System.out.println("\nO que você deseja fazer?\n1-Excluir\n2- Visualizar Funcionários\n0- Sair");
+			op4 = read.nextInt();
+			while(op4<0 || op4>2) {	
+				System.out.println("Código inválido!!");
+				System.out.println("\nO que você deseja fazer?\n1-Excluir\n2- Visualizar Funcionários\n0- Sair");
+				op4 = read.nextInt();
+				
+			}if(op4 == 1) { //Caso de exclusao
+				for(Lixos f :funcionarioArray) {
+					DateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+					Calendar calendario = Calendar.getInstance();
+					System.out.println(df.format(calendario.getTime()));
+					f.ImprimirInfo();
+				}
+				System.out.println("\nDigite a posição de qual funcionário você deseja demitir: ");
+				codExcluir = read.nextInt();
+				funcionarioArray.remove(codExcluir-1);
+				
+				for(Lixos f :funcionarioArray) {
+					DateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+					Calendar calendario = Calendar.getInstance();
+					System.out.println(df.format(calendario.getTime()));
+					f.ImprimirInfo();
+				}
+			}
 			
+			if(op4 == 2) {
+				for(Lixos f :funcionarioArray) {
+					DateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+					Calendar calendario = Calendar.getInstance();
+					System.out.println(df.format(calendario.getTime()));
+					f.ImprimirInfo();
+				}
+				break;
+			}	
 			break;
-		
+			} else {
+				System.out.println("Código Inválido!!");
+			}
+			
 		default:
-			System.out.println("Obrigado pela preferência.");
+			System.out.println("Programa encerrado com sucesso!");
 			break;
 		}
+		System.out.println("Obrigado pela preferência.");
 
 	}
 
