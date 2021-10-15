@@ -21,13 +21,16 @@ public class Lixos extends Funcionario{
 
 	
 	public void ImprimirInfo() {
-		System.out.println(getNome()+getCpf()+getIdade()+getEmail()+getTelefone()+getSalario()+getCodigoT()+papel+vidro+plastico+metal);
+		System.out.println(getNome()+"\nCPF: "+getCpf()+"\nIdade: "+getIdade()+"\nE-mail: "+getEmail()+"\nTelefone: "+getTelefone()+"\nSalário: R$"+getSalario()+"\nCódigo do Funcionário: "+getCodigoT()
+		+"\n_________________________________________________________________________________"
+		+"\nLista de reciclagem em KG: "
+		+"\nPapel "+papel+" KG\nVidro "+vidro+" KG\nPlastico "+plastico+" KG\nMetal "+metal+" KG");
 	}
 	
 	public void imprimirComissao() {
 		double calculo;
 		calculo = (papel / 100) + (plastico / 100) + (metal / 100) + (vidro / 100);
-		System.out.println("O valor da sua comissão atual é de: "+calculo);
+		System.out.println("O valor da sua comissão atual é de: "+calculo+"%");
 	}
 
 	public double getPapel() {
@@ -62,7 +65,11 @@ public class Lixos extends Funcionario{
 		this.metal = metal;
 	}
 	public void imprimirLixos() {
-		System.out.printf(papel+"\t "+metal+"\t "+plastico+"\t "+vidro);
+		System.out.printf("\nSua lista de reciclagem em KG atual é: "
+				+"\nPapel "+papel+" KG\nVidro "+vidro+" KG\nPlastico "+plastico+" KG\nMetal "+metal+" KG\n");
 	}
+	public void ImprimirInfoAdm() {
+        System.out.println(getNome()+"\t"+getCpf()+"\t"+getIdade()+"\t"+getEmail()+"\t"+getTelefone()+"\t"+getSalario()+"\t"+getCodigoT()+"\t"+papel+"\t"+vidro+"\t"+plastico+"\t"+metal);
+    }
 	
 }
