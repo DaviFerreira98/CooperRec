@@ -25,6 +25,7 @@ public class CopperRec {
 		Lixos funcionario3 = new Lixos("Wesley","209.149.730-45",22,"wesleypontes@cooperrec.com",39234571,2000,36722,40,25,400,300);
 		Lixos funcionario4 = new Lixos("Amanda","493.862.380-39",30,"amandalima@cooperrec.com",25655545,2000,36715,37,78,250,600);
 		Lixos funcionario5 = new Lixos("Luan","426.124.260-51",19,"luanfernandes@cooperrec.com",28886125,2000,36799,458,272,44,25);
+		Lixos funcionario6 = new Lixos("","",0,"",0,0,0,0,0,0,0);
 		
 		funcionarioArray.add(funcionario);
 		funcionarioArray.add(funcionario1);
@@ -32,6 +33,7 @@ public class CopperRec {
 		funcionarioArray.add(funcionario3);
 		funcionarioArray.add(funcionario4);
 		funcionarioArray.add(funcionario5);
+		funcionarioArray.add(funcionario6);
 		
 		
 		System.out.println("______________________________________________________________________");
@@ -304,15 +306,17 @@ public class CopperRec {
 			System.out.println("\n\t\tQual das opções abaixo você deseja? Digite:"
 					+ "\n\t 1 - Excluir"
 					+ "\n\t 2 - Visualizar Funcionários"
+					+ "\n\t 3 - Adicionar Funcionários"
 					+ "\n\t 0 - Sair");
 			System.out.println("*******************************************************************************");
 			op4 = read.nextInt();
-			while(op4<0 || op4>2) {	
+			while(op4<0 || op4>3) {	
 				System.out.println("Atenção, opção invalida, por gentileza, digite novamente: ");
 				System.out.println("*******************************************************************************");
 				System.out.println("\n\t\tQual das opções abaixo você deseja? Digite:"
 						+ "\n\t1 - Excluir"
 						+ "\n\t2 - Visualizar Funcionários"
+						+ "\n\t3 - Adicionar Funcionários"
 						+ "\n\t0 - Sair");
 				System.out.println("*******************************************************************************");
 				op4 = read.nextInt();
@@ -324,7 +328,9 @@ public class CopperRec {
 				System.out.println("___________________________________________________________________________________________________________________________________________");
 				System.out.println("Nome\t\tCPF\tIdade\t\tE-mail\t\t\tTelefone\tSalário\tCódigo\tPapel\tVidro\tPlast.\tMetal");
 				for(Lixos f :funcionarioArray) {
-					f.ImprimirInfoAdm();
+					if(f.getCodigoT()!=0) {
+						f.ImprimirInfoAdm();
+					}
 				}
 				System.out.println("___________________________________________________________________________________________________________________________________________");
 				System.out.println("\nPor gentileza, digite a posição de qual funcionário você deseja demitir: ");
@@ -333,7 +339,9 @@ public class CopperRec {
 				
 				System.out.println("Nome\t\tCPF\tIdade\t\tE-mail\t\t\tTelefone\tSalário\tCódigo\tPapel\tVidro\tPlast.\tMetal");
 				for(Lixos f :funcionarioArray) {
-					f.ImprimirInfoAdm();
+					if(f.getCodigoT()!=0) {
+						f.ImprimirInfoAdm();
+					}
 				}
 				System.out.println("___________________________________________________________________________________________________________________________________________");
 			}
@@ -345,11 +353,26 @@ public class CopperRec {
 				System.out.println("___________________________________________________________________________________________________________________________________________");
 				System.out.println("Nome\t\tCPF\tIdade\t\tE-mail\t\t\tTelefone\tSalário\tCódigo\tPapel\tVidro\tPlast.\tMetal");
 				for(Lixos f :funcionarioArray) {
+					if(f.getCodigoT()!=0) {
 					f.ImprimirInfoAdm();
+					}
 				}
 				System.out.println("___________________________________________________________________________________________________________________________________________");
 				break;
 			}	
+			if(op4 == 3)
+					{
+				read.nextLine();
+				String nome;
+				System.out.println("\nDigite o nome do novo funcionário: ");
+				nome = read.next();
+				
+				funcionario.setNome(nome);
+				funcionarioArray.add(funcionario);
+					for(Lixos f :funcionarioArray) {
+					f.ImprimirInfoAdm();
+				}
+			}
 			break;
 			} else {
 				System.out.println("Atenção, código invalido, por gentileza, digite novamente: ");
