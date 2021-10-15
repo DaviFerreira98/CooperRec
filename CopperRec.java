@@ -17,7 +17,7 @@ public class CopperRec {
 		int contErro = 0;
 		double papel=0,metal=0,vidro=0,plastico=0;
 		Scanner read = new Scanner(System.in);
-
+		//Declarando funcionários e seus parâmetros
 		ArrayList<Lixos>funcionarioArray = new ArrayList();
 		Lixos funcionario = new Lixos("Davi","559.211.640-38",34,"davicantanary@cooperrec.com",40028922,2000,36754,500,450,10,10);
 		Lixos funcionario1 = new Lixos("Carlos","766.113.590-60",25,"carlosalcantara@cooperrec.com",38366266,2000,36782,500,40,3,100);
@@ -35,7 +35,7 @@ public class CopperRec {
 		funcionarioArray.add(funcionario5);
 		funcionarioArray.add(funcionario6);
 		
-		
+		//Apresentação do programa
 		System.out.println("______________________________________________________________________");
 		System.out.println("   ___                                     __              \r\n"
 				+ "  / __\\  ___    ___   _ __    ___  _ __   /__\\   ___   ___ \r\n"
@@ -59,7 +59,7 @@ public class CopperRec {
 			
 			System.out.println("Caro colaborador, por gentileza, informe seu código de entrada: ");
 			codtrab = read.nextInt();
-			//INICIO
+			
 			for(Lixos f :funcionarioArray) { // Verificar o Codigo
 				contErro=0;
 				
@@ -91,7 +91,7 @@ public class CopperRec {
 					System.out.println("***********************************************************************************");
 					op2=read.nextInt();
 				}
-				do 
+				do //Início do adicionar materiais 
 			switch(op2) {
 		
 			
@@ -151,7 +151,7 @@ public class CopperRec {
 				break;
 				}
 				break;
-				
+				//Fim do adicionar materiais
 			case 2:
 				f.imprimirComissao();
 				System.out.println("Quais das opções abaixo você deseja? Digite:"
@@ -170,19 +170,16 @@ public class CopperRec {
 	
 		}
 		
-				else {
-					
-					//contErro++;
-				}
+				
 			
 		}			
-					//FIM
-
-			while(certo!=true) { //Caso do codigo errado
+					
+			//Caso digite o código errado na primeira tentativa 
+			while(certo!=true) { 
 				System.out.println("Atenção, código invalido, por gentileza, digite novamente: ");
 				System.out.println("Caro colaborador, por gentileza, informe seu código de entrada: ");
-				codtrab = read.nextInt();//COLE A PARTIR DAQUI
-				for(Lixos f :funcionarioArray) { // Verificar o Codigo
+				codtrab = read.nextInt();
+				for(Lixos f :funcionarioArray) { 
 					contErro=0;
 					
 					if(codtrab == f.getCodigoT()) {
@@ -292,11 +289,11 @@ public class CopperRec {
 			}
 			
 				
-			}
-			//COLE ATÉ AQUI	
-			}
+		}
 			
+	}
 			break;
+			//Menu coordenador
 		case 2:
 			System.out.println("Caro coordenador, por gentileza, informe seu código de login: ");
 			loginAdm = read.nextInt();
@@ -359,16 +356,35 @@ public class CopperRec {
 				}
 				System.out.println("___________________________________________________________________________________________________________________________________________");
 				break;
-			}	
+			}
+			//Adicionando novo funcionário
 			if(op4 == 3)
 					{
 				read.nextLine();
 				String nome;
 				System.out.println("\nDigite o nome do novo funcionário: ");
 				nome = read.next();
+				System.out.println("\nDigite o CPF do novo funcionário: ");
+				String cpf = read.next();
+				System.out.println("\nDigite a idade do novo funcionário: ");
+				int idade = read.nextInt();
+				System.out.println("\nDigite o e-mail do novo funcionário: ");
+				String email = read.next();
+				System.out.println("\nDigite o telefone do novo funcionário: ");
+				int telefone = read.nextInt();
+				System.out.println("\nDigite o salário do novo funcionário: ");
+				double salario = read.nextDouble();
+				System.out.println("\nDigite o código do novo funcionário: ");
+				int codigo = read.nextInt();
 				
-				funcionario.setNome(nome);
-				funcionarioArray.add(funcionario);
+				funcionario6.setNome(nome);
+				funcionario6.setCpf(cpf);
+				funcionario6.setIdade(idade);
+				funcionario6.setEmail(email);
+				funcionario6.setTelefone(telefone);
+				funcionario6.setSalario(salario);
+				funcionario6.setCodigoT(codigo);
+				
 					for(Lixos f :funcionarioArray) {
 					f.ImprimirInfoAdm();
 				}
@@ -387,5 +403,5 @@ public class CopperRec {
 	}
 
 
-}
+}//Fim do programa
 

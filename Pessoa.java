@@ -8,7 +8,7 @@ public class Pessoa {
 	private String email;
 	private int telefone;
 	private double salario;
-
+	//Método construtor
 	public Pessoa(String nome,String cpf, int idade, String email, int telefone, double salario) {
 		this.nome=nome;
 		this.cpf=cpf;
@@ -17,7 +17,7 @@ public class Pessoa {
 		this.telefone=telefone;
 		this.salario=salario;
 	}
-
+	//Getters e Setters
 	public String getNome() {
 		return nome;
 	}
