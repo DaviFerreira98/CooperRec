@@ -50,6 +50,7 @@ public class CopperRec {
 				System.out.println(df.format(calendario.getTime()));
 				f.ImprimirInfo();
 				
+				
 				System.out.println("\t\tVoce Deseja:"
 						+ "\n1\t Adicionar o lixo a ser reciclado"
 						+ "\n2\t ver a comissão");
@@ -67,20 +68,22 @@ public class CopperRec {
 		
 			
 			case 1:
-				System.out.println("Qual voce deseja adicionar: "
+				System.out.println("\nQual voce deseja adicionar: "
 						+ "\n1- Papel"
 						+ "\n2- metal"
 						+ "\n3- plastico"
 						+ "\n4- vidro"
+						+"\n5- Para ver sua comissão"
 						+ "\n0 - sair");
 				op3=read.nextInt();
-				while(op3<0 || op3>4) {
-					System.out.println("Erro");
+				while(op3<0 || op3>5) {
+					System.out.println("\nErro");
 					System.out.println("Qual voce deseja adicionar: "
 							+ "\n1- Papel"
 							+ "\n2- metal"
 							+ "\n3- plastico"
 							+ "\n4- vidro"
+							+ "\n5- Para ver sua comissão"
 							+ "\n0 - sair");
 					op3=read.nextInt();
 				}
@@ -112,6 +115,9 @@ public class CopperRec {
 					f.imprimirLixos();
 					
 				}
+				if(op3==5) {
+					f.imprimirComissao();
+				}
 				if(op3==0) {
 			    op2 = 0;
 				break;
@@ -126,7 +132,7 @@ public class CopperRec {
 					System.out.println("Digite 1 para adicionar lixos ou digite 0 para sair");
 					op2 = read.nextInt();				}
 				break;
-				
+			
 			}
 				while (op2 != 0);
 	
@@ -171,20 +177,22 @@ public class CopperRec {
 			
 				
 				case 1:
-					System.out.println("Qual voce deseja adicionar: "
+					System.out.println("\nQual voce deseja adicionar: "
 							+ "\n1- Papel"
 							+ "\n2- metal"
 							+ "\n3- plastico"
 							+ "\n4- vidro"
+							+ "\n5- Para ver sua comissão"
 							+ "\n0 - sair");
 					op3=read.nextInt();
-					while(op3<0 || op3>4) {
-						System.out.println("Erro");
+					while(op3<0 || op3>5) {
+						System.out.println("\nErro");
 						System.out.println("Qual voce deseja adicionar: "
 								+ "\n1- Papel"
 								+ "\n2- metal"
 								+ "\n3- plastico"
 								+ "\n4- vidro"
+								+ "\n5- Para ver sua comissão"
 								+ "\n0 - sair");
 						op3=read.nextInt();
 					}
@@ -215,6 +223,9 @@ public class CopperRec {
 						f.setVidro(vidro+f.getVidro());
 						f.imprimirLixos();
 						
+					}
+					if(op3==5) {
+						f.imprimirComissao();
 					}
 					if(op3==0) {
 				    op2 = 0;

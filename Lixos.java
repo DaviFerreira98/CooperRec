@@ -62,7 +62,7 @@ public class Lixos extends Funcionario{
 		this.metal = metal;
 	}
 	public void imprimirLixos() {
-		System.out.println(papel);
+		System.out.printf(papel+"\t "+metal+"\t "+plastico+"\t "+vidro);
 	}
 	
 }
