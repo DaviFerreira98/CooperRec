@@ -48,10 +48,10 @@ public class CopperRec {
 		
 		System.out.println("Bem vinde a CooperRec, o seu sistema de reciclagem favorito!!!"
 				+"Para continuarmos, precisamos da sua identificação: ");
-		System.out.println("Você é (1)Colaborador ou (2)Operador, (0)Para sair.");
+		System.out.println("Você é (1)Colaborador ou (2)Coordenador, (0)Para sair.");
 		op = read.nextInt();
 		while(op<0 || op>2) {
-			System.out.println("Você é (1)Colaborador ou (2)Operador, (0)Para sair.");
+			System.out.println("Você é (1)Colaborador ou (2)Coordenador, (0)Para sair.");
 			op = read.nextInt();
 		}
 		switch(op){
@@ -295,10 +295,13 @@ public class CopperRec {
 			break;
 			//Menu coordenador
 		case 2:
+			
 			System.out.println("Caro coordenador, por gentileza, informe seu código de login: ");
 			loginAdm = read.nextInt();
+			
 			if(loginAdm == codAdm)
 			{
+				do {
 			System.out.println("*******************************************************************************");
 			System.out.println("\n\t\tQual das opções abaixo você deseja? Digite:"
 					+ "\n\t 1 - Excluir"
@@ -307,6 +310,7 @@ public class CopperRec {
 					+ "\n\t 0 - Sair");
 			System.out.println("*******************************************************************************");
 			op4 = read.nextInt();
+			
 			while(op4<0 || op4>3) {	
 				System.out.println("Atenção, opção invalida, por gentileza, digite novamente: ");
 				System.out.println("*******************************************************************************");
@@ -317,7 +321,7 @@ public class CopperRec {
 						+ "\n\t0 - Sair");
 				System.out.println("*******************************************************************************");
 				op4 = read.nextInt();
-				
+			
 			}if(op4 == 1) { //Caso de exclusao
 				DateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 				Calendar calendario = Calendar.getInstance();
@@ -355,7 +359,7 @@ public class CopperRec {
 					}
 				}
 				System.out.println("___________________________________________________________________________________________________________________________________________");
-				break;
+				
 			}
 			//Adicionando novo funcionário
 			if(op4 == 3)
@@ -388,16 +392,25 @@ public class CopperRec {
 					for(Lixos f :funcionarioArray) {
 					f.ImprimirInfoAdm();
 				}
-			}
-			break;
-			} else {
-				System.out.println("Atenção, código invalido, por gentileza, digite novamente: ");
+					
+			
+		
 			}
 			
+				}while(op4!=0);
+				break;
+			}
+			
+			else {
+				System.out.println("Atenção, código invalido, por gentileza, digite novamente: ");
+			}
+		
 		default:
 			System.out.println("Programa encerrado com sucesso!");
 			break;
+			
 		}
+		
 		System.out.println("Obrigado pela preferência.");
 
 	}
